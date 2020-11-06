@@ -1,0 +1,26 @@
+﻿@page "{id?}"
+@model Plants.Views.Home.ProfileModel
+@{ViewBag.Title = "Profile";}
+
+@using (Html.BeginForm("Search", "Plant", FormMethod.Get)) { }
+
+<table class="table">
+    <tr>
+        <td>@Model.x.common_name</td>
+        <td>@Model.x.slug</td>
+        <td>@Model.x.scientific_name</td>
+        <td>@Model.x.year</td>
+        <td>@Model.x.bibliography</td>
+        <td>@Model.x.author</td>
+        <td>@Model.x.status</td>
+        <td>@Model.x.rank</td>
+        <td>@Model.x.family_common_name</td>
+        <td>@Model.x.image_url</td>
+        <td>@Model.x.synonyms[0]</td>
+        <td>@Model.x.genus</td>
+        <td>@Model.x.family</td>
+        <td>@Model.x.links.genus</td>
+        <td>@Model.x.links.plant</td>
+        <td>@Model.x.links.self</td>
+    </tr>
+</table>
