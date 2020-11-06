@@ -1,28 +1,22 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using System.Runtime.CompilerServices;
 using Plants.Models;
 using Plants.Repository;
-using ApiApplication.Controllers;
 
 namespace Plants.Views.Home
 {
     public class ProfileModel : PageModel
     {
-        public Plant y { get; set; }
+        public Plant Plant { get; set; }
 
-        public apiData x { get; set; }
+        public apiData apiData { get; set; }
 
         private ITrefleRepository repository;
         public ProfileModel(ITrefleRepository _repository, Plant plant)
         {
             this.repository = _repository;
             this.repository.GetPlantsAsync();
-            this.y = plant;
+            this.Plant = plant;
         }
 
         //[BindProperty(SupportsGet = true)]
@@ -30,7 +24,7 @@ namespace Plants.Views.Home
 
         public async Task OnGetAsync(int id)
         {
-            x = this.y.GetPlantObject(id);
+            this.apiData = this.Plant.GetPlantObject(id);
         }
     }
 }

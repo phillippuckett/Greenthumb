@@ -18,9 +18,8 @@
     <tr>
         @*<th>@Html.ActionLink("Image Url", "Search", new { sortOrder = ViewBag.SortImageUrl, currentFilter = ViewBag.CurrentFilter })</th>*@ @*<th>@Html.ActionLink("id", "Search", new { sortOrder = ViewBag.SortId, currentFilter = ViewBag.CurrentFilter })</th>*@ @*<th>@Html.ActionLink("Common Name", "Search", new { sortOrder = ViewBag.SortCommonName, currentFilter = ViewBag.CurrentFilter })</th>*@ @*<th>@Html.ActionLink("Slug", "Search", new { sortOrder = ViewBag.SortSlug, currentFilter = ViewBag.CurrentFilter })</th>*@ @*<th>@Html.ActionLink("Scientific Name", "Search", new { sortOrder = ViewBag.SortScientificName, currentFilter = ViewBag.CurrentFilter })</th>*@ @*<th>@Html.ActionLink("Year", "Search", new { sortOrder = ViewBag.SortYear, currentFilter = ViewBag.CurrentFilter })</th>*@ @*<th>@Html.ActionLink("Bibliography", "Search", new { sortOrder = ViewBag.SortBibliography, currentFilter = ViewBag.CurrentFilter })</th>*@ @*<th>@Html.ActionLink("Author", "Search", new { sortOrder = ViewBag.SortAuthor, currentFilter = ViewBag.CurrentFilter })</th>*@ @*<th>@Html.ActionLink("Status", "Search", new { sortOrder = ViewBag.SortStatus, currentFilter = ViewBag.CurrentFilter })</th>*@ @*<th>Html.ActionLink("Family Common Name", "Search", new { sortOrder = ViewBag.SortFamilyCommonName, currentFilter = ViewBag.CurrentFilter })</th>*@ @*<th>@Html.ActionLink("GenusId", "Search", new { sortOrder = ViewBag.SortGenusId, currentFilter = ViewBag.CurrentFilter })</th>*@ @*<th>@Html.ActionLink("Genus", "Search", new { sortOrder = ViewBag.SortGenus, currentFilter = ViewBag.CurrentFilter })</th>*@ @*@<th>@Html.ActionLink("Synonyms", "Search", new { sortOrder = ViewBag.SortSynonyms, currentFilter = ViewBag.CurrentFilter })</th>*@ @*@<th>@Html.ActionLink("Family", "Search", new { sortOrder = ViewBag.SortFamily, currentFilter = ViewBag.CurrentFilter })</th>*@ @*@<th>@Html.ActionLink("PlantId", "Search", new { sortOrder = ViewBag.SortPlantId, currentFilter = ViewBag.CurrentFilter })</th>*@
     </tr>
-    @{Console.WriteLine(Model);}
-    @{Console.WriteLine(Model.apidata);}
-    @foreach (var item in Model.apidata)
+
+    @foreach (var item in Model.OnGetAsync())
     {
         <tr>
             <td>
