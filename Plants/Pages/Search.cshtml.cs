@@ -5,22 +5,24 @@ using Plants.Repository;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Plants.Views.Home
+namespace Plants.Pages
 {
     public class SearchModel : PageModel
     {
         ITrefleRepository repository;
 
+        //[BindProperty]
+        //[BindProperty(SupportsGet = true)]
         public Plant Plant { get; set; }
 
         [BindProperty(SupportsGet = true)]
         public List<apiData> apiData { get; set; }
 
-        public SearchModel(ITrefleRepository _repository, Plant plant)
+        public SearchModel(ITrefleRepository r, Plant p)
         {
-            this.repository = _repository;
+            this.repository = r;
             this.apiData = new List<apiData>();
-            this.Plant = plant;
+            this.Plant = p;
         }
 
         public async Task OnGetAsync()

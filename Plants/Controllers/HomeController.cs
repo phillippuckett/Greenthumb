@@ -22,8 +22,6 @@ namespace Plants.Controllers
 
         public IActionResult Index() { return View(); }
         public IActionResult Privacy() { return View(); }
-        public IActionResult Profile() { return View(); }
-        public IActionResult Search() { return View(); }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

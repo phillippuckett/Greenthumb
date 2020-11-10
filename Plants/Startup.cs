@@ -60,16 +60,11 @@ namespace Plants
             app.UseAuthorization();
             app.UseSession();
             app.UseStaticFiles();
-            app.UseEndpoints(endpoints =>
+
+            app.UseEndpoints(endpoints => 
             {
-                endpoints.MapRazorPages();
-            });
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
-                endpoints.MapRazorPages();
+                endpoints.MapDefaultControllerRoute();
+                endpoints.MapRazorPages(); 
             });
         }
     }

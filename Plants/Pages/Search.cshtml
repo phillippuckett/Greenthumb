@@ -1,8 +1,8 @@
 ﻿@page
-@model Plants.Views.Home.SearchModel
+@model Plants.Pages.SearchModel
 @{ViewBag.Title = "Search";}
 
-@using (Html.BeginForm("Search", "Plant", FormMethod.Get)) { }
+@*@using (Html.BeginForm("Search", "Plant", FormMethod.Get)) { }*@
 
 @*<form asp-action="Search" method="get">
         <div class="form-action no-color">
@@ -19,7 +19,7 @@
         @*<th>@Html.ActionLink("Image Url", "Search", new { sortOrder = ViewBag.SortImageUrl, currentFilter = ViewBag.CurrentFilter })</th>*@ @*<th>@Html.ActionLink("id", "Search", new { sortOrder = ViewBag.SortId, currentFilter = ViewBag.CurrentFilter })</th>*@ @*<th>@Html.ActionLink("Common Name", "Search", new { sortOrder = ViewBag.SortCommonName, currentFilter = ViewBag.CurrentFilter })</th>*@ @*<th>@Html.ActionLink("Slug", "Search", new { sortOrder = ViewBag.SortSlug, currentFilter = ViewBag.CurrentFilter })</th>*@ @*<th>@Html.ActionLink("Scientific Name", "Search", new { sortOrder = ViewBag.SortScientificName, currentFilter = ViewBag.CurrentFilter })</th>*@ @*<th>@Html.ActionLink("Year", "Search", new { sortOrder = ViewBag.SortYear, currentFilter = ViewBag.CurrentFilter })</th>*@ @*<th>@Html.ActionLink("Bibliography", "Search", new { sortOrder = ViewBag.SortBibliography, currentFilter = ViewBag.CurrentFilter })</th>*@ @*<th>@Html.ActionLink("Author", "Search", new { sortOrder = ViewBag.SortAuthor, currentFilter = ViewBag.CurrentFilter })</th>*@ @*<th>@Html.ActionLink("Status", "Search", new { sortOrder = ViewBag.SortStatus, currentFilter = ViewBag.CurrentFilter })</th>*@ @*<th>Html.ActionLink("Family Common Name", "Search", new { sortOrder = ViewBag.SortFamilyCommonName, currentFilter = ViewBag.CurrentFilter })</th>*@ @*<th>@Html.ActionLink("GenusId", "Search", new { sortOrder = ViewBag.SortGenusId, currentFilter = ViewBag.CurrentFilter })</th>*@ @*<th>@Html.ActionLink("Genus", "Search", new { sortOrder = ViewBag.SortGenus, currentFilter = ViewBag.CurrentFilter })</th>*@ @*@<th>@Html.ActionLink("Synonyms", "Search", new { sortOrder = ViewBag.SortSynonyms, currentFilter = ViewBag.CurrentFilter })</th>*@ @*@<th>@Html.ActionLink("Family", "Search", new { sortOrder = ViewBag.SortFamily, currentFilter = ViewBag.CurrentFilter })</th>*@ @*@<th>@Html.ActionLink("PlantId", "Search", new { sortOrder = ViewBag.SortPlantId, currentFilter = ViewBag.CurrentFilter })</th>*@
     </tr>
 
-    @foreach (var item in Model.OnGetAsync())
+    @foreach (var item in Model.apiData)
     {
         <tr>
             <td>
