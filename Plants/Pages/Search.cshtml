@@ -2,62 +2,64 @@
 @model Plants.Pages.SearchModel
 @{ViewBag.Title = "Search";}
 
-@*@using (Html.BeginForm("Search", "Plant", FormMethod.Get)) { }*@
 
-@*<form asp-action="Search" method="get">
-        <div class="form-action no-color">
-            <p>
-                SearchBarHere: <input type="text" name="searchString" value="@ViewData["CurrentFilter"]" />
-                               <input type="submit" value="Search" placeholder="Search" class="btn btn-success"/>
-                               <a asp-action="Search">Back</a>
-            </p>
-        </div>
-    </form>*@
+<form asp-page="./Search" method="get">
+    <div class="form-actions no-color">
+        <p>
+            <input type="text" name="SearchString" value="@Model.CurrentFilter" />
+            <input type="submit" value="Search" class="btn btn-primary" /> |
+            <a asp-page="./Search">Refresh</a>
+        </p>
+    </div>
+</form>
+
 
 <table class="table">
     <tr>
-        @*<th>@Html.ActionLink("Image Url", "Search", new { sortOrder = ViewBag.SortImageUrl, currentFilter = ViewBag.CurrentFilter })</th>*@ @*<th>@Html.ActionLink("id", "Search", new { sortOrder = ViewBag.SortId, currentFilter = ViewBag.CurrentFilter })</th>*@ @*<th>@Html.ActionLink("Common Name", "Search", new { sortOrder = ViewBag.SortCommonName, currentFilter = ViewBag.CurrentFilter })</th>*@ @*<th>@Html.ActionLink("Slug", "Search", new { sortOrder = ViewBag.SortSlug, currentFilter = ViewBag.CurrentFilter })</th>*@ @*<th>@Html.ActionLink("Scientific Name", "Search", new { sortOrder = ViewBag.SortScientificName, currentFilter = ViewBag.CurrentFilter })</th>*@ @*<th>@Html.ActionLink("Year", "Search", new { sortOrder = ViewBag.SortYear, currentFilter = ViewBag.CurrentFilter })</th>*@ @*<th>@Html.ActionLink("Bibliography", "Search", new { sortOrder = ViewBag.SortBibliography, currentFilter = ViewBag.CurrentFilter })</th>*@ @*<th>@Html.ActionLink("Author", "Search", new { sortOrder = ViewBag.SortAuthor, currentFilter = ViewBag.CurrentFilter })</th>*@ @*<th>@Html.ActionLink("Status", "Search", new { sortOrder = ViewBag.SortStatus, currentFilter = ViewBag.CurrentFilter })</th>*@ @*<th>Html.ActionLink("Family Common Name", "Search", new { sortOrder = ViewBag.SortFamilyCommonName, currentFilter = ViewBag.CurrentFilter })</th>*@ @*<th>@Html.ActionLink("GenusId", "Search", new { sortOrder = ViewBag.SortGenusId, currentFilter = ViewBag.CurrentFilter })</th>*@ @*<th>@Html.ActionLink("Genus", "Search", new { sortOrder = ViewBag.SortGenus, currentFilter = ViewBag.CurrentFilter })</th>*@ @*@<th>@Html.ActionLink("Synonyms", "Search", new { sortOrder = ViewBag.SortSynonyms, currentFilter = ViewBag.CurrentFilter })</th>*@ @*@<th>@Html.ActionLink("Family", "Search", new { sortOrder = ViewBag.SortFamily, currentFilter = ViewBag.CurrentFilter })</th>*@ @*@<th>@Html.ActionLink("PlantId", "Search", new { sortOrder = ViewBag.SortPlantId, currentFilter = ViewBag.CurrentFilter })</th>*@
+        <th>
+            <a asp-page="Search" asp-route-sortOrder="@Model.CommonNameSort"
+                asp-route-currentFilter="@Model.CurrentFilter">
+                @Html.DisplayNameFor(model => model.CommonNameSort)
+            </a>
+        </th>
+        <th>
+            <a asp-page="Search" asp-route-sortOrder="@Model.FamilyCommonNameSort"
+               asp-route-currentFilter="@Model.CurrentFilter">
+                @Html.DisplayNameFor(model => model.FamilyCommonNameSort)
+            </a>
+        </th>
     </tr>
 
-    @foreach (var item in Model.apiData)
-    {
+    @foreach (var item in Model.iEnumApiData)
+    {       
         <tr>
             <td>
-                @item.common_name
+                <a asp-page="Profile" asp-route-id="@item.id">@Html.DisplayFor(model => item.common_name)</a>
             </td>
             <td>
-                @item.family_common_name
-            </td>
-        </tr>
-        <tr>
-            <td>
-                @item.scientific_name
-            </td>
-            <td>
-                @item.family
-            </td>
-            <td>
-                <a asp-page="Profile" asp-route-id="@item.id">Profile</a>
+                @* when clicking on a family, send a string of that value to the search and auto-filter *@
+                @Html.DisplayFor(model => item.family_common_name)
             </td>
         </tr>
     }
 </table>
 
 @*@{
-        var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
-        var nextDisabled = !Model.HasNextPage ? "disabled" : "";
-    }
+    var prevDisabled = !Model.ApiData.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.ApiData.HasNextPage ? "disabled" : "";
+}*@
 
-    <a asp-action="Search"
-       asp-route-SortOrder="@ViewBag.CurrentSort"
-       asp-route-pageNumber="@(Model.PageIndex - 1)"
-       asp-route-currentFilter="@ViewData["CurrentFilter"]"
-       class="btn btn-default @prevDisabled">Previous
-    </a>
-    <a asp-action="Search"
-       asp-route-SortOrder="@ViewBag.CurrentSort"
-       asp-route-pageNumber="@(Model.PageIndex + 1)"
-       asp-route-currentFilter="@ViewData["CurrentFilter"]"
-       class="btn btn-default @nextDisabled">
-        Next
-    </a>*@
+@*<a asp-page="./Index"
+   asp-route-sortOrder="@Model.CurrentSort"
+   asp-route-pageIndex="@(Model.ApiData.PageIndex - 1)"
+   asp-route-currentFilter="@Model.CurrentFilter"
+   class="btn btn-primary @prevDisabled">
+    Previous
+</a>
+<a asp-page="./Index"
+   asp-route-sortOrder="@Model.CurrentSort"
+   asp-route-pageIndex="@(Model.ApiData.PageIndex + 1)"
+   asp-route-currentFilter="@Model.CurrentFilter"
+   class="btn btn-primary @nextDisabled">
+    Next
+</a>*@
