@@ -1676,19 +1676,22 @@ pre {
 .table {
     width: 100%;
     margin-bottom: 1rem;
-    color: #212529;
+    /*color: #212529;*/
+    color: #adb5bd;
 }
 
     .table th,
     .table td {
         padding: 0.75rem;
         vertical-align: top;
-        border-top: 1px solid #dee2e6;
+        /*border-top: 1px solid #dee2e6;*/
+        border: 1px dotted #ffc107;
     }
 
     .table thead th {
         vertical-align: bottom;
-        border-bottom: 2px solid #dee2e6;
+        /*border-top: 1px solid #dee2e6;*/
+        border: 1px dotted #ffc107;
     }
 
     .table tbody + tbody {
@@ -6810,8 +6813,24 @@ button.bg-light:focus {
     background-color: #dae0e5 !important;
 }
 
-.bg-dark {
-    background-color: #343a40 !important;
+.bg-dark-1 {
+    background-color: #686868 !important;
+}
+
+.bg-dark-2 {
+    background-color: #3e3e42 !important;
+}
+
+.bg-dark-3 {
+    background-color: #2d2d30 !important;
+}
+
+.bg-dark-4 {
+    background-color: #252526 !important;
+}
+
+.bg-dark-5 {
+    background-color: #1e1e1e !important;
 }
 
 a.bg-dark:hover, a.bg-dark:focus,

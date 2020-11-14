@@ -6,23 +6,53 @@
 
 <table class="table">
     <tr>
-        <th>@Model.apiData.common_name</th>
+        <img class="img-fluid" src="@Model.apiData.image_url" alt="No Image Available" /></img>
     </tr>
     <tr>
-    <th>@Model.apiData.slug</th>
-    <th>@Model.apiData.scientific_name</th>
-    <th>@Model.apiData.year</th>
-    <th>@Model.apiData.bibliography</th>
-    <th>@Model.apiData.author</th>
-    <th>@Model.apiData.status</th>
-    <th>@Model.apiData.rank</th>
-    <th>@Model.apiData.family_common_name</th>
-    <th>@Model.apiData.image_url</th>
-    <th>@Model.apiData.synonyms[0]</th>
-    <th>@Model.apiData.genus</th>
-    <th>@Model.apiData.family</th>
-    <th>@Model.apiData.links.genus</th>
-    <th>@Model.apiData.links.plant</th>
-    <th>@Model.apiData.links.self</th>
+        <td>@Model.apiData.common_name</td>
     </tr>
+    <tr>
+        <td>Makes up a part of the @Model.apiData.family_common_name</td>
+    </tr>
+        @*<tr><th>@Model.apiData.slug</th></tr>*@
+    <tbody style="display: inline-flex;">
+        <tr>
+            <td>@Model.apiData.year</td>
+        </tr>
+        <tr>
+            <td>@Model.apiData.bibliography</td>
+        </tr>
+        <tr>
+            <td>@Model.apiData.author</td>
+        </tr>
+        <tr>
+            <td>@Model.apiData.status</td>
+        </tr>
+        <tr>
+            <td>@Model.apiData.rank</td>
+    </tbody>
+    <tr>
+        <td>Synonyms may include: @Model.apiData.synonyms[0]</td>
+    </tr>
+    <tr>
+        <td>Kingdom</td>
+    </tr>
+    <tr>
+        <td>Phylum</td>
+    </tr> 
+    <tr>
+        <td>Order</td>
+    </tr> 
+    <tr>
+        <td>Family: @Model.apiData.family</td>
+    </tr> 
+    <tr>
+        <td>Genus: @Model.apiData.genus</td>
+    </tr> 
+    <tr>
+        <td>Species: @Model.apiData.scientific_name</td>
+    </tr>
+        @*<tr><th>@Model.apiData.links.genus</th></tr>
+        <tr><th>@Model.apiData.links.plant</th></tr>
+        <tr><th>@Model.apiData.links.self</th></tr>*@
 </table>

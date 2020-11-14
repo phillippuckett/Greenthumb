@@ -19,13 +19,15 @@
         <th>
             <a asp-page="Search" asp-route-sortOrder="@Model.CommonNameSort"
                 asp-route-currentFilter="@Model.CurrentFilter">
-                @Html.DisplayNameFor(model => model.CommonNameSort)
+                @*@Html.DisplayNameFor(model => model.CommonNameSort)*@
+                Coloquial Name
             </a>
         </th>
         <th>
             <a asp-page="Search" asp-route-sortOrder="@Model.FamilyCommonNameSort"
                asp-route-currentFilter="@Model.CurrentFilter">
-                @Html.DisplayNameFor(model => model.FamilyCommonNameSort)
+                @*@Html.DisplayNameFor(model => model.FamilyCommonNameSort)*@
+                Family Coloquial Name
             </a>
         </th>
     </tr>
