@@ -32,6 +32,7 @@ namespace Plants.Pages
 
         // SEARCHING, SORTING, FILTERING, PAGINATION //
 
+        public int pageSize = 5;
         public string CommonNameSort { get; set; }
         public string FamilyCommonNameSort { get; set; }
         public string CurrentFilter { get; set; }
@@ -79,10 +80,9 @@ namespace Plants.Pages
                 default:
                     iEnumApiData = iEnumApiData.OrderByDescending(item => item.common_name);
                     break;
-            }
-
-            int pageSize = 5;
+            }            
             //ApiData = await PaginatedList<apiData>.CreateAsync(apiData, pageIndex ?? 1, pageSize);
         }
+        
     }
 }
