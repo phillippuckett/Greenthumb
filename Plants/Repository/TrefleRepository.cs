@@ -16,11 +16,11 @@ namespace Plants.Repository
         private string baseUrl = "https://trefle.io/api/v1/";
         private string token = "km3qolYTRwDjiRKJL8M2ARoVW77sRUTNVj0RXRN4xYs";
 
-        public async Task<List<apiData>> GetPlantsAsync()
+        public async Task<List<Species>> GetPlantsAsync()
         {
             try
             {
-                List<apiData> jsonObject = new List<apiData>();
+                List<Species> jsonObject = new List<Species>();
 
                 using (var client = new HttpClient())
                 {

@@ -20,17 +20,17 @@ namespace Plants.Pages
         public Plant Plant { get; set; }
 
         [BindProperty(SupportsGet = true)]
-        public List<apiData> apiData { get; set; }
-        public IEnumerable<apiData> iEnumApiData { get; set; }
+        public List<Species> apiData { get; set; }
+        public IEnumerable<Species> iEnumApiData { get; set; }
 
         public SearchModel(ITrefleRepository r, Plant p)
         {
             this.repository = r;
-            this.apiData = new List<apiData>();
+            this.apiData = new List<Species>();
             this.Plant = p;
         }
 
-        // SEARCHING, SORTING, FILTERING, PAGINATION //
+        // SEARCHING, SORTING, FILTERING, PAGINATION? //
 
         public int pageSize = 5;
         public string CommonNameSort { get; set; }
@@ -38,13 +38,12 @@ namespace Plants.Pages
         public string CurrentFilter { get; set; }
         public string CurrentSort { get; set; }
 
-        public PaginatedList<apiData> ApiData { get; set; }
+        //public PaginatedList<Species> ApiData { get; set; }
 
         public async Task OnGetAsync(string sortOrder, string currentFilter, string searchString, int? pageIndex)
         {
             CurrentSort = sortOrder;
-            CommonNameSort = String.IsNullOrEmpty(sortOrder) ? "CommonNameDesc" : "";
-            FamilyCommonNameSort = String.IsNullOrEmpty(sortOrder) ? "FamilyCommonNameDesc" : "";
+            CommonNameSort = String.IsNullOrEmpty(sortOrder) ? "descending" : "";
             
             if (searchString != null)
             {
@@ -71,11 +70,8 @@ namespace Plants.Pages
 
             switch (sortOrder)
             {
-                case "CommonNameDesc":
+                case "descending":
                     iEnumApiData = iEnumApiData.OrderBy(item => item.common_name);
-                    break;
-                case "FamilyCommonNameDesc":
-                    iEnumApiData = iEnumApiData.OrderBy(item => item.family_common_name);
                     break;
                 default:
                     iEnumApiData = iEnumApiData.OrderByDescending(item => item.common_name);

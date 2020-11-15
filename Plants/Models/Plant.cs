@@ -11,13 +11,13 @@ namespace Plants.Models
     // PLANT //
     public class Plant
     {
-        public List<apiData> data { get; set; } = new List<apiData>();
-        public virtual apiData GetPlantObject(int id)
+        public List<Species> data { get; set; } = new List<Species>();
+        public virtual Species GetPlantObject(int id)
         {
             return this.data.FirstOrDefault(x => x.id == id);
         }
 
-        public virtual void AddPlants(List<apiData> apiDatas)
+        public virtual void AddPlants(List<Species> apiDatas)
         {
             this.data.AddRange(apiDatas);
         }
@@ -37,7 +37,7 @@ namespace Plants.Models
             return plant;
         }
 
-        public override void AddPlants(List<apiData> apiDatas)
+        public override void AddPlants(List<Species> apiDatas)
         {
             base.AddPlants(apiDatas);
             Session.SetJson("Flora", this);

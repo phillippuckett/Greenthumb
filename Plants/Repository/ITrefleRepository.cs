@@ -8,6 +8,6 @@ namespace Plants.Repository
 {
     public interface ITrefleRepository
     {
-        public Task<List<apiData>> GetPlantsAsync();
+        public Task<List<Species>> GetPlantsAsync();
     }
 }
