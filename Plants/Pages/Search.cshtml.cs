@@ -42,9 +42,6 @@ namespace Plants.Pages
 
         public async Task OnGetAsync(string sortOrder, string currentFilter, string searchString, int? pageIndex)
         {
-            CurrentSort = sortOrder;
-            CommonNameSort = String.IsNullOrEmpty(sortOrder) ? "descending" : "";
-            
             if (searchString != null)
             {
                 pageIndex = 1;
@@ -67,6 +64,9 @@ namespace Plants.Pages
             }
 
             this.Plant.AddPlants(apiData);
+            
+            CurrentSort = sortOrder;
+            CommonNameSort = String.IsNullOrEmpty(sortOrder) ? "descending" : "";
 
             switch (sortOrder)
             {

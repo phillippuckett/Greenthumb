@@ -5,101 +5,401 @@
 @using (Html.BeginForm("Search", "Plant", FormMethod.Get)) { }
 
 <table class="table">
-    <tr><td>Id: @Model.species.id</td></tr>
-    <tr><td>CommonName: @Model.species.common_name</td></tr>
-    <tr><td>Slug: @Model.species.slug</td></tr>
-    <tr><td>ScientificName: @Model.species.scientific_name</td></tr>
-    <tr><td>Year: @Model.species.year</td></tr>
-    <tr><td>Bibliography: @Model.species.bibliography</td></tr>
-    <tr><td>Author: @Model.species.author</td></tr>
-    <tr><td>Status: @Model.species.status</td></tr>
-    <tr><td>Rank: @Model.species.rank</td></tr>
-    <tr><td>FamilyCommonName: @Model.species.family_common_name</td></tr>
-    <tr><td>GenusId: @Model.species.genus_id</td></tr>
-    <tr><img class="img-fluid" src="@Model.species.image_url" alt="No Image Available" /></img></tr>
-    <tr><td>Duration: @Model.species.duration</td></tr>
-    <tr><td>EdiblePart: @Model.species.edible_part</td></tr>
-    <tr><td>Edible? @Model.species.edible</td></tr>
-    <tr><td>Vegetable? @Model.species.vegetable</td></tr>
-    <tr><td>Observation: @Model.species.observation</td></tr>
-    <tr><td>CommonNames: @Model.species.common_names</td></tr>
-    <tr><td>Distribution: @Model.species.distribution</td></tr>
-    <tr><td>Synonyms: @Model.species.synonyms[0]</td></tr>
-    <tr><td>Sources: @Model.species.sources</td></tr>
-    <tr><td>Genus: @Model.species.genus</td></tr>
-    <tr><td>Family: @Model.species.family</td></tr>
-    <tr><td>PlantId: @Model.species.plant_id</td></tr>
+    <tr>
+        <th>ID</th>
+        @{string DisplayId()
+            {
+                string str;
+                if (Model.species.id != null) { str = Convert.ToString(Model.species.id); }
+                else { str = "No data available"; }
+                return str;
+            }
+        }
+        <td>@DisplayId()</td>
+    </tr>
 
-    <tr><td>Links/Self: @Model.species.links.self</td></tr>
-    <tr><td>Links/Plant: @Model.species.links.plant</td></tr>
-    <tr><td>Links/Genus: @Model.species.links.genus</td></tr>
+    <tr>
+        <th>Common Name</th>
+        @{string DisplayCommonName()
+            {
+                string str;
+                if (Model.species.common_name != null) { str = Model.species.common_name; }
+                else { str = "No data available"; }
+                return str;
+            }
+        }
+        <td>@DisplayCommonName()</td>
+    </tr>
 
-    @*<tr><th>Images/Flower: @Model.apiData.images.flower</th></tr>
-        <tr><th>Images/Leaf: @Model.apiData.images.leaf</th></tr>
-        <tr><th>Images/Habit: @Model.apiData.images.habit</th></tr>
-        <tr><th>Images/Fruit: @Model.apiData.images.fruit</th></tr>
-        <tr><th>Images/Bark: @Model.apiData.images.bark</th></tr>
-        <tr><th>Images/Other: @Model.apiData.images.other</th></tr>*@
+    <tr>
+        <th>Slug</th>
+        @{string DisplaySlug()
+            {
+                string str;
+                if (Model.species.slug != null) { str = Model.species.slug; }
+                else { str = "No data available"; }
+                return str;
+            }
+        }
+        <td>@DisplaySlug()</td>
+    </tr>
 
-    @*<tr><th>Distributions/Native: @Model.apiData.distributions.native</th></tr>
-    <tr><th>Distributions/Introduced: @Model.apiData.distributions.introduced</th></tr>
-    <tr><th>Distributions/Doubtful: @Model.apiData.distributions.doubtful</th></tr>
-    <tr><th>Distributions/Absent: @Model.apiData.distributions.absent</th></tr>
-    <tr><th>Distributions/Extinct: @Model.apiData.distributions.extinct</th></tr>*@
+    <tr>
+        <th>Scientific Name</th>
+        @{string DisplayScientificName()
+            {
+                string str;
+                if (Model.species.scientific_name != null) { str = Model.species.scientific_name; }
+                else { str = "No data available"; }
+                return str;
+            }
+        }
+        <td>@DisplayScientificName()</td>
+    </tr>
 
-    @*<tr><th>Flower/Color: @Model.apiData.flower.color</th></tr>
-    <tr><th>Flower/Conspicuous: @Model.apiData.flower.conspicuous</th></tr>*@
+    <tr>
+        <th>Year</th>
+        @{string DisplayYear()
+            {
+                string str;
+                if (Model.species.year != null) { str = Convert.ToString(Model.species.year); }
+                else { str = "No data available"; }
+                return str;
+            }
+        }
+        <td>@DisplayYear()</td>
+    </tr>
 
-    @*<tr><th>Foliage/Texture: @Model.apiData.foliage.texture</th></tr>
-    <tr><th>Foliage/Color: @Model.apiData.foliage.color</th></tr>
-    <tr><th>Foliage/LeafRetention: @Model.apiData.foliage.leaf_retention</th></tr>*@
+    <tr>
+        <th>Bibliography</th>
+        @{string DisplayBibliography()
+            {
+                string str;
+                if (Model.species.bibliography != null) { str = Model.species.bibliography; }
+                else { str = "No data available"; }
+                return str;
+            }
+        }
+        <td>@DisplayBibliography()</td>
+    </tr>
 
-    @*<tr><th>FruitOrSeed/Conspicuous: @Model.apiData.fruit_or_seed.conspicuous</th></tr>
-    <tr><th>FruitOrSeed/Color: @Model.apiData.fruit_or_seed.color</th></tr>
-    <tr><th>FruitOrSeed/Shape: @Model.apiData.fruit_or_seed.shape</th></tr>
-    <tr><th>FruitOrSeed/SeedPersistence: @Model.apiData.fruit_or_seed.seed_persistence</th></tr>*@
+    <tr>
+        <th>Author</th>
+        @{string DisplayAuthor()
+            {
+                string str;
+                if (Model.species.author != null) { str = Model.species.author; }
+                else { str = "No data available"; }
+                return str;
+            }
+        }
+        <td>@DisplayAuthor()</td>
+    <tr>
 
-    @*<tr><td>Specifications/Type: @Model.apiData.specifications.type</td></tr>
-    <tr><td>Specifications/Form: @Model.apiData.specifications.form</td></tr>
-    <tr><td>Specifications/GrowthHabit: @Model.apiData.specifications.growth_habit</td></tr>
-    <tr><td>Specifications/GrowthRate: @Model.apiData.specifications.growth_rate</td></tr>
-    <tr><td>Specifications/AverageHeight: @Model.apiData.specifications.average_height</td></tr>
-    <tr><td>Specifications/MaximumHeight: @Model.apiData.specifications.maximum_height</td></tr>
-    <tr><td>Specifications/NitrogenFixation: @Model.apiData.specifications.nitrogen_fixation</td></tr>
-    <tr><td>Specifications/ShapeAndOrientation: @Model.apiData.specifications.shape_and_orientation</td></tr>
-    <tr><td>Specifications/Toxicity: @Model.apiData.specifications.toxicity</td></tr>*@
+        <th>Status</th>
+        @{string DisplayStatus()
+            {
+                string str;
+                if (Model.species.status != null) { str = Model.species.status; }
+                else { str = "No data available"; }
+                return str;
+            }
+        }
+        <td>@DisplayStatus()</td>
+    <tr>
 
-    @*<tr><th>Growth/DaysToHarvest: @Model.apiData.growth.days_to_harvest</th></tr>
-    <tr><th>Growth/Description: @Model.apiData.growth.description</th></tr>
-    <tr><th>Growth/Sowing: @Model.apiData.growth.sowing</th></tr>
-    <tr><th>Growth/PhMax: @Model.apiData.growth.ph_maximum</th></tr>
-    <tr><th>Growth/PhMin: @Model.apiData.growth.ph_minimum</th></tr>
-    <tr><th>Growth/Light: @Model.apiData.growth.light</th></tr>
-    <tr><th>Growth/AtmosphericHumidity: @Model.apiData.growth.atmospheric_humidity</th></tr>
-    <tr><th>Growth/GrowthMonths: @Model.apiData.growth.growth_months</th></tr>
-    <tr><th>Growth/BloomMonths: @Model.apiData.growth.bloom_months</th></tr>
-    <tr><th>Growth/FruitMonths: @Model.apiData.growth.fruit_months</th></tr>
-    <tr><th>Growth/RowSpacing: @Model.apiData.growth.row_spacing</th></tr>
-    <tr><th>Growth/Spread: @Model.apiData.growth.spread</th></tr>
-    <tr><th>Growth/MaxPrec: @Model.apiData.growth.maximum_precipitation</th></tr>
-    <tr><th>Growth/MinPrec: @Model.apiData.growth.minimum_precipitation</th></tr>
-    <tr><th>Growth/MinRootDepth: @Model.apiData.growth.minimum_root_depth</th></tr>
-    <tr><th>Growth/MinTemp: @Model.apiData.growth.minimum_temperature</th></tr>
-    <tr><th>Growth/MaxTemp: @Model.apiData.growth.maximum_temperature</th></tr>
-    <tr><th>Growth/SoilNutr: @Model.apiData.growth.soil_nutriments</th></tr>
-    <tr><th>Growth/SoilSal: @Model.apiData.growth.soil_salinity</th></tr>
-    <tr><th>Growth/SoilTexture: @Model.apiData.growth.soil_texture</th></tr>
-    <tr><th>Growth/SoilHum: @Model.apiData.growth.soil_humidity</th></tr>*@
+    <tr>
+        <th>Rank</th>
+        @{string DisplayRank()
+            {
+                string str;
+                if (Model.species.rank != null) { str = Model.species.rank; }
+                else { str = "No data available"; }
+                return str;
+            }
+        }
+        <td>@DisplayRank()</td>
+    <tr>
 
-    @*<tr><th>Synonyms/: @Model.apiData.synonyms.id</th></tr>
-        <tr><th>Synonyms/: @Model.apiData.synonyms.name</th></tr>
-        <tr><th>Synonyms/: @Model.apiData.synonyms.author</th></tr>*@
+    <tr>
+        <th>Family Common Name</th>
+        @{string DisplayFamilyCommonName()
+            {
+                string str;
+                if (Model.species.family_common_name != null) { str = Model.species.family_common_name; }
+                else { str = "No data available"; }
+                return str;
+            }
+        }
+        <td>@DisplayFamilyCommonName()</td>
+    <tr>
+    <tr>
+        <th>Genus ID</th>
+        @{string DisplayGenusId()
+            {
+                string str;
+                if (Model.species.genus_id != null) { str = Convert.ToString(Model.species.genus_id); }
+                else { str = "No data available"; }
+                return str;
+            }
+        }
+        <td>@DisplayGenusId()</td>
+    <tr>
 
-    @*<tr><th>Sources/Id: @Model.apiData.sources.id</th></tr>
-        <tr><th>Sources/Name: @Model.apiData.sources.name</th></tr>
-        <tr><th>Sources/Citation: @Model.apiData.sources.citation</th></tr>
-        <tr><th>Sources/Url: @Model.apiData.sources.url</th></tr>
-        <tr><th>Sources/LastUpdate: @Model.apiData.sources.last_update</th></tr>*@
+    <tr>
+        <img class="img-fluid" src="@Model.species.image_url" alt="No Image Available" /></img>
+    </tr>
+
+    <tr>
+        <th>Duration</th>
+        @{string DisplayDuration()
+            {
+                string str;
+                if (Model.species.duration != null) { str = Model.species.duration; }
+                else { str = "No data available"; }
+                return str;
+            }
+        }
+        <td>@DisplayDuration()</td>
+    <tr>
+    <tr>
+        <th>Edible Part</th>
+        @{string DisplayEdiblePart()
+            {
+                string str;
+                if (Model.species.edible_part != null) { str = Model.species.edible_part; }
+                else { str = "No data available"; }
+                return str;
+            }
+        }
+        <td>@DisplayEdiblePart()</td>
+    <tr>
+    <tr>
+        <th>Edible?</th>
+        @{string DisplayEdibility()
+            {
+                string str = "";
+                if (Model.species.edible == true) { str = "Yes"; }
+                else if (Model.species.edible == false) { str = "No"; }
+                else { str = "Find out for yourself"; }
+                return str;
+            }
+        }
+        <td>@DisplayEdibility()</td>
+    </tr>
+    <tr>
+        <th>Vegetable?</th>
+        @{string DisplayIfVegetable()
+            {
+                string str = "";
+                if (Model.species.vegetable == true) { str = "Yes"; }
+                else if (Model.species.vegetable == false) { str = "No"; }
+                else { str = "Find out for yourself"; }
+                return str;
+            }
+        }
+        <td>@DisplayIfVegetable()</td>
+    </tr>
+    <tr>
+        <th>Observation</th>
+        @{string DisplayObservation()
+            {
+                string str;
+                if (Model.species.observation != null) { str = Model.species.observation; }
+                else { str = "No data available"; }
+                return str;
+            }
+        }
+        <td>@DisplayObservation()</td>
+    <tr>
+    <tr>
+        <th>CommonNames</th>
+        @{string DisplayCommonNames()
+            {
+                string str;
+                if (Model.species.common_names != null) { str = Model.species.common_names[0]; } // iterate through an array
+                else { str = "No data available"; }
+                return str;
+            }
+        }
+        <td>@DisplayCommonNames()</td>
+    <tr>
+    <tr>
+        <th>Distribution</th>
+        @{string DisplayDistribution()
+            {
+                string str;
+                if (Model.species.distribution != null) { str = Model.species.distribution[0]; }
+                else { str = "No data available"; }
+                return str;
+            }
+        }
+        <td>@DisplayDistribution()</td>
+    <tr>
+    <tr>
+        <th>Synonyms</th>
+        @{string DisplaySynonyms()
+            {
+                string str;
+                if (Model.species.synonyms != null) { str = Model.species.synonyms[0]; }
+                else { str = "No data available"; }
+                return str;
+            }
+        }
+        <td>@DisplaySynonyms()</td>
+    <tr>
+    <tr>
+        <th>Sources</th>
+        @{string DisplaySources()
+            {
+                string str;
+                if (Model.species.sources != null) { str = Model.species.sources[0]; }
+                else { str = "No data available"; }
+                return str;
+            }
+        }
+        <td>@DisplaySources()</td>
+    <tr>
+    <tr>
+        <th>Genus</th>
+        @{string DisplayGenus()
+            {
+                string str;
+                if (Model.species.genus != null) { str = Model.species.genus; }
+                else { str = "No data available"; }
+                return str;
+            }
+        }
+        <td>@DisplayGenus()</td>
+    <tr>
+    <tr>
+        <th>Family</th>
+        @{string DisplayFamily()
+            {
+                string str;
+                if (Model.species.family != null) { str = Model.species.family; }
+                else { str = "No data available"; }
+                return str;
+            }
+        }
+        <td>@DisplayFamily()</td>
+    <tr>
+    <tr>
+        <th>Plant ID</th>
+        @{string DisplayPlantId()
+            {
+                string str;
+                if (Model.species.plant_id != null) { str = Convert.ToString(Model.species.plant_id); }
+                else { str = "No data available"; }
+                return str;
+            }
+        }
+        <td>@DisplayPlantId()</td>
+    <tr>
+
+    <tr>
+        <th>Links/Self</th>
+        @{string DisplayLinksSelf()
+            {
+                string str;
+                if (Model.species.links.self != null) { str = Model.species.links.self; }
+                else { str = "No data available"; }
+                return str;
+            }
+        }
+        <td>@DisplayLinksSelf()</td>
+    <tr>
+    <tr>
+        <th>Links/Plant</th>
+        @{string DisplayLinksPlant()
+            {
+                string str;
+                if (Model.species.links.plant != null) { str = Model.species.links.plant; }
+                else { str = "No data available"; }
+                return str;
+            }
+        }
+        <td>@DisplayLinksPlant()</td>
+    <tr>
+    <tr>
+        <th>Links/Genus</th>
+        @{string DisplayLinksGenus()
+            {
+                string str;
+                if (Model.species.links.genus != null) { str = Model.species.links.genus; }
+                else { str = "No data available"; }
+                return str;
+            }
+        }
+        <td>@DisplayLinksGenus()</td>
+    <tr>
+
+        @*<tr><th>Images/Flower: @Model.apiData.images.flower</th></tr>
+            <tr><th>Images/Leaf: @Model.apiData.images.leaf</th></tr>
+            <tr><th>Images/Habit: @Model.apiData.images.habit</th></tr>
+            <tr><th>Images/Fruit: @Model.apiData.images.fruit</th></tr>
+            <tr><th>Images/Bark: @Model.apiData.images.bark</th></tr>
+            <tr><th>Images/Other: @Model.apiData.images.other</th></tr>*@
+
+        @*<tr><th>Distributions/Native: @Model.apiData.distributions.native</th></tr>
+            <tr><th>Distributions/Introduced: @Model.apiData.distributions.introduced</th></tr>
+            <tr><th>Distributions/Doubtful: @Model.apiData.distributions.doubtful</th></tr>
+            <tr><th>Distributions/Absent: @Model.apiData.distributions.absent</th></tr>
+            <tr><th>Distributions/Extinct: @Model.apiData.distributions.extinct</th></tr>*@
+
+        @*<tr><th>Flower/Color: @Model.apiData.flower.color</th></tr>
+            <tr><th>Flower/Conspicuous: @Model.apiData.flower.conspicuous</th></tr>*@
+
+        @*<tr><th>Foliage/Texture: @Model.apiData.foliage.texture</th></tr>
+            <tr><th>Foliage/Color: @Model.apiData.foliage.color</th></tr>
+            <tr><th>Foliage/LeafRetention: @Model.apiData.foliage.leaf_retention</th></tr>*@
+
+        @*<tr><th>FruitOrSeed/Conspicuous: @Model.apiData.fruit_or_seed.conspicuous</th></tr>
+            <tr><th>FruitOrSeed/Color: @Model.apiData.fruit_or_seed.color</th></tr>
+            <tr><th>FruitOrSeed/Shape: @Model.apiData.fruit_or_seed.shape</th></tr>
+            <tr><th>FruitOrSeed/SeedPersistence: @Model.apiData.fruit_or_seed.seed_persistence</th></tr>*@
+
+        @*<tr><td>Specifications/Type: @Model.apiData.specifications.type</td></tr>
+            <tr><td>Specifications/Form: @Model.apiData.specifications.form</td></tr>
+            <tr><td>Specifications/GrowthHabit: @Model.apiData.specifications.growth_habit</td></tr>
+            <tr><td>Specifications/GrowthRate: @Model.apiData.specifications.growth_rate</td></tr>
+            <tr><td>Specifications/AverageHeight: @Model.apiData.specifications.average_height</td></tr>
+            <tr><td>Specifications/MaximumHeight: @Model.apiData.specifications.maximum_height</td></tr>
+            <tr><td>Specifications/NitrogenFixation: @Model.apiData.specifications.nitrogen_fixation</td></tr>
+            <tr><td>Specifications/ShapeAndOrientation: @Model.apiData.specifications.shape_and_orientation</td></tr>
+            <tr><td>Specifications/Toxicity: @Model.apiData.specifications.toxicity</td></tr>*@
+
+        @*<tr><th>Growth/DaysToHarvest: @Model.apiData.growth.days_to_harvest</th></tr>
+            <tr><th>Growth/Description: @Model.apiData.growth.description</th></tr>
+            <tr><th>Growth/Sowing: @Model.apiData.growth.sowing</th></tr>
+            <tr><th>Growth/PhMax: @Model.apiData.growth.ph_maximum</th></tr>
+            <tr><th>Growth/PhMin: @Model.apiData.growth.ph_minimum</th></tr>
+            <tr><th>Growth/Light: @Model.apiData.growth.light</th></tr>
+            <tr><th>Growth/AtmosphericHumidity: @Model.apiData.growth.atmospheric_humidity</th></tr>
+            <tr><th>Growth/GrowthMonths: @Model.apiData.growth.growth_months</th></tr>
+            <tr><th>Growth/BloomMonths: @Model.apiData.growth.bloom_months</th></tr>
+            <tr><th>Growth/FruitMonths: @Model.apiData.growth.fruit_months</th></tr>
+            <tr><th>Growth/RowSpacing: @Model.apiData.growth.row_spacing</th></tr>
+            <tr><th>Growth/Spread: @Model.apiData.growth.spread</th></tr>
+            <tr><th>Growth/MaxPrec: @Model.apiData.growth.maximum_precipitation</th></tr>
+            <tr><th>Growth/MinPrec: @Model.apiData.growth.minimum_precipitation</th></tr>
+            <tr><th>Growth/MinRootDepth: @Model.apiData.growth.minimum_root_depth</th></tr>
+            <tr><th>Growth/MinTemp: @Model.apiData.growth.minimum_temperature</th></tr>
+            <tr><th>Growth/MaxTemp: @Model.apiData.growth.maximum_temperature</th></tr>
+            <tr><th>Growth/SoilNutr: @Model.apiData.growth.soil_nutriments</th></tr>
+            <tr><th>Growth/SoilSal: @Model.apiData.growth.soil_salinity</th></tr>
+            <tr><th>Growth/SoilTexture: @Model.apiData.growth.soil_texture</th></tr>
+            <tr><th>Growth/SoilHum: @Model.apiData.growth.soil_humidity</th></tr>*@
+
+        @*<tr><th>Synonyms/: @Model.apiData.synonyms.id</th></tr>
+            <tr><th>Synonyms/: @Model.apiData.synonyms.name</th></tr>
+            <tr><th>Synonyms/: @Model.apiData.synonyms.author</th></tr>*@
+
+        @*<tr><th>Sources/Id: @Model.apiData.sources.id</th></tr>
+            <tr><th>Sources/Name: @Model.apiData.sources.name</th></tr>
+            <tr><th>Sources/Citation: @Model.apiData.sources.citation</th></tr>
+            <tr><th>Sources/Url: @Model.apiData.sources.url</th></tr>
+            <tr><th>Sources/LastUpdate: @Model.apiData.sources.last_update</th></tr>*@
 
 
 </table>
