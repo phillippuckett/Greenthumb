@@ -11,15 +11,15 @@ namespace Plants.Models
     // PLANT //
     public class Plant
     {
-        public List<Species> data { get; set; } = new List<Species>();
+        public List<Species> Data { get; set; } = new List<Species>();
         public virtual Species GetPlantObject(int id)
         {
-            return this.data.FirstOrDefault(x => x.id == id);
+            return this.Data.FirstOrDefault(x => x.id == id);
         }
 
         public virtual void AddPlants(List<Species> apiDatas)
         {
-            this.data.AddRange(apiDatas);
+            this.Data.AddRange(apiDatas);
         }
     }
 

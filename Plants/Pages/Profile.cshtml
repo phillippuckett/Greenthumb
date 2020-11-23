@@ -10,7 +10,7 @@
         @{string DisplayId()
             {
                 string str;
-                if (Model.species.id != null) { str = Convert.ToString(Model.species.id); }
+                if (Model.Species.id != null) { str = Convert.ToString(Model.Species.id); }
                 else { str = "No data available"; }
                 return str;
             }
@@ -23,7 +23,7 @@
         @{string DisplayCommonName()
             {
                 string str;
-                if (Model.species.common_name != null) { str = Model.species.common_name; }
+                if (Model.Species.common_name != null) { str = Model.Species.common_name; }
                 else { str = "No data available"; }
                 return str;
             }
@@ -36,7 +36,7 @@
         @{string DisplaySlug()
             {
                 string str;
-                if (Model.species.slug != null) { str = Model.species.slug; }
+                if (Model.Species.slug != null) { str = Model.Species.slug; }
                 else { str = "No data available"; }
                 return str;
             }
@@ -49,7 +49,7 @@
         @{string DisplayScientificName()
             {
                 string str;
-                if (Model.species.scientific_name != null) { str = Model.species.scientific_name; }
+                if (Model.Species.scientific_name != null) { str = Model.Species.scientific_name; }
                 else { str = "No data available"; }
                 return str;
             }
@@ -62,7 +62,7 @@
         @{string DisplayYear()
             {
                 string str;
-                if (Model.species.year != null) { str = Convert.ToString(Model.species.year); }
+                if (Model.Species.year != null) { str = Convert.ToString(Model.Species.year); }
                 else { str = "No data available"; }
                 return str;
             }
@@ -75,7 +75,7 @@
         @{string DisplayBibliography()
             {
                 string str;
-                if (Model.species.bibliography != null) { str = Model.species.bibliography; }
+                if (Model.Species.bibliography != null) { str = Model.Species.bibliography; }
                 else { str = "No data available"; }
                 return str;
             }
@@ -88,7 +88,7 @@
         @{string DisplayAuthor()
             {
                 string str;
-                if (Model.species.author != null) { str = Model.species.author; }
+                if (Model.Species.author != null) { str = Model.Species.author; }
                 else { str = "No data available"; }
                 return str;
             }
@@ -100,7 +100,7 @@
         @{string DisplayStatus()
             {
                 string str;
-                if (Model.species.status != null) { str = Model.species.status; }
+                if (Model.Species.status != null) { str = Model.Species.status; }
                 else { str = "No data available"; }
                 return str;
             }
@@ -113,7 +113,7 @@
         @{string DisplayRank()
             {
                 string str;
-                if (Model.species.rank != null) { str = Model.species.rank; }
+                if (Model.Species.rank != null) { str = Model.Species.rank; }
                 else { str = "No data available"; }
                 return str;
             }
@@ -126,7 +126,7 @@
         @{string DisplayFamilyCommonName()
             {
                 string str;
-                if (Model.species.family_common_name != null) { str = Model.species.family_common_name; }
+                if (Model.Species.family_common_name != null) { str = Model.Species.family_common_name; }
                 else { str = "No data available"; }
                 return str;
             }
@@ -138,7 +138,7 @@
         @{string DisplayGenusId()
             {
                 string str;
-                if (Model.species.genus_id != null) { str = Convert.ToString(Model.species.genus_id); }
+                if (Model.Species.genus_id != null) { str = Convert.ToString(Model.Species.genus_id); }
                 else { str = "No data available"; }
                 return str;
             }
@@ -147,7 +147,7 @@
     <tr>
 
     <tr>
-        <img class="img-fluid" src="@Model.species.image_url" alt="No Image Available" /></img>
+        <img class="img-fluid" src="@Model.Species.image_url" alt="No Image Available" /></img>
     </tr>
 
     <tr>
@@ -155,7 +155,7 @@
         @{string DisplayDuration()
             {
                 string str;
-                if (Model.species.duration != null) { str = Model.species.duration; }
+                if (Model.Species.duration != null) { str = Model.Species.duration; }
                 else { str = "No data available"; }
                 return str;
             }
@@ -167,7 +167,7 @@
         @{string DisplayEdiblePart()
             {
                 string str;
-                if (Model.species.edible_part != null) { str = Model.species.edible_part; }
+                if (Model.Species.edible_part != null) { str = Model.Species.edible_part; }
                 else { str = "No data available"; }
                 return str;
             }
@@ -179,8 +179,8 @@
         @{string DisplayEdibility()
             {
                 string str = "";
-                if (Model.species.edible == true) { str = "Yes"; }
-                else if (Model.species.edible == false) { str = "No"; }
+                if (Model.Species.edible == true) { str = "Yes"; }
+                else if (Model.Species.edible == false) { str = "No"; }
                 else { str = "Find out for yourself"; }
                 return str;
             }
@@ -192,8 +192,8 @@
         @{string DisplayIfVegetable()
             {
                 string str = "";
-                if (Model.species.vegetable == true) { str = "Yes"; }
-                else if (Model.species.vegetable == false) { str = "No"; }
+                if (Model.Species.vegetable == true) { str = "Yes"; }
+                else if (Model.Species.vegetable == false) { str = "No"; }
                 else { str = "Find out for yourself"; }
                 return str;
             }
@@ -205,7 +205,7 @@
         @{string DisplayObservation()
             {
                 string str;
-                if (Model.species.observation != null) { str = Model.species.observation; }
+                if (Model.Species.observation != null) { str = Model.Species.observation; }
                 else { str = "No data available"; }
                 return str;
             }
@@ -217,7 +217,7 @@
         @{string DisplayCommonNames()
             {
                 string str;
-                if (Model.species.common_names != null) { str = Model.species.common_names[0]; } // iterate through an array
+                if (Model.Species.common_names != null) { str = Model.Species.common_names[0]; } // iterate through an array
                 else { str = "No data available"; }
                 return str;
             }
@@ -229,7 +229,7 @@
         @{string DisplayDistribution()
             {
                 string str;
-                if (Model.species.distribution != null) { str = Model.species.distribution[0]; }
+                if (Model.Species.distribution != null) { str = Model.Species.distribution[0]; }
                 else { str = "No data available"; }
                 return str;
             }
@@ -241,7 +241,7 @@
         @{string DisplaySynonyms()
             {
                 string str;
-                if (Model.species.synonyms != null) { str = Model.species.synonyms[0]; }
+                if (Model.Species.synonyms != null) { str = Model.Species.synonyms[0]; }
                 else { str = "No data available"; }
                 return str;
             }
@@ -253,7 +253,7 @@
         @{string DisplaySources()
             {
                 string str;
-                if (Model.species.sources != null) { str = Model.species.sources[0]; }
+                if (Model.Species.sources != null) { str = Model.Species.sources[0]; }
                 else { str = "No data available"; }
                 return str;
             }
@@ -265,7 +265,7 @@
         @{string DisplayGenus()
             {
                 string str;
-                if (Model.species.genus != null) { str = Model.species.genus; }
+                if (Model.Species.genus != null) { str = Model.Species.genus; }
                 else { str = "No data available"; }
                 return str;
             }
@@ -277,7 +277,7 @@
         @{string DisplayFamily()
             {
                 string str;
-                if (Model.species.family != null) { str = Model.species.family; }
+                if (Model.Species.family != null) { str = Model.Species.family; }
                 else { str = "No data available"; }
                 return str;
             }
@@ -289,7 +289,7 @@
         @{string DisplayPlantId()
             {
                 string str;
-                if (Model.species.plant_id != null) { str = Convert.ToString(Model.species.plant_id); }
+                if (Model.Species.plant_id != null) { str = Convert.ToString(Model.Species.plant_id); }
                 else { str = "No data available"; }
                 return str;
             }
@@ -302,7 +302,7 @@
         @{string DisplayLinksSelf()
             {
                 string str;
-                if (Model.species.links.self != null) { str = Model.species.links.self; }
+                if (Model.Species.links.self != null) { str = Model.Species.links.self; }
                 else { str = "No data available"; }
                 return str;
             }
@@ -314,7 +314,7 @@
         @{string DisplayLinksPlant()
             {
                 string str;
-                if (Model.species.links.plant != null) { str = Model.species.links.plant; }
+                if (Model.Species.links.plant != null) { str = Model.Species.links.plant; }
                 else { str = "No data available"; }
                 return str;
             }
@@ -326,7 +326,7 @@
         @{string DisplayLinksGenus()
             {
                 string str;
-                if (Model.species.links.genus != null) { str = Model.species.links.genus; }
+                if (Model.Species.links.genus != null) { str = Model.Species.links.genus; }
                 else { str = "No data available"; }
                 return str;
             }

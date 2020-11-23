@@ -12,7 +12,7 @@ namespace Plants.Controllers
 {
     public class HomeController : Controller
     {
-
+        // https://www.youtube.com/watch?v=2bjia2dhLbs
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)

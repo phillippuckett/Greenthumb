@@ -1686,13 +1686,15 @@ pre {
         padding: 0.75rem;
         vertical-align: top;
         /*border-top: 1px solid #dee2e6;*/
-        border: 1px dotted #ffc107;
+        border: 1px solid rgba(0, 0, 0, 0);
+        background-color: rgba(255, 255, 255, .25);
     }
 
     .table thead th {
         vertical-align: bottom;
         /*border-top: 1px solid #dee2e6;*/
-        border: 1px dotted #ffc107;
+        border: 1px solid rgba(0, 0, 0, 0);
+        background-color: rgba(255, 255, 255, .25);
     }
 
     .table tbody + tbody {
@@ -1726,12 +1728,14 @@ pre {
 }
 
 .table-striped tbody tr:nth-of-type(odd) {
-    background-color: rgba(0, 0, 0, 0.05);
+    /*background-color: rgba(0, 0, 0, 0.05);*/
+    background-color: rgba(255, 255, 255, 0.05);
 }
 
 .table-hover tbody tr:hover {
     color: #212529;
-    background-color: rgba(0, 0, 0, 0.075);
+    /*background-color: rgba(0, 0, 0, 0.075);*/
+    background-color: rgba(255, 255, 255, 0.05);
 }
 
 .table-primary,

@@ -9,7 +9,7 @@ namespace Plants.Views.Home
     {
         public Plant Plant { get; set; }
 
-        public Species species { get; set; }
+        public Species Species { get; set; }
 
         private ITrefleRepository repository;
         public ProfileModel(ITrefleRepository _repository, Plant plant)
@@ -24,7 +24,7 @@ namespace Plants.Views.Home
 
         public async Task OnGetAsync(int id)
         {
-            this.species = this.Plant.GetPlantObject(id);
+            this.Species = this.Plant.GetPlantObject(id);
         }
     }
 }
